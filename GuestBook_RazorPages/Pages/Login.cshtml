@@ -1,0 +1,30 @@
+﻿@page
+@model GuestBook_RazorPages.Pages.LoginModel
+<div class="row">
+    <div class="col-md-4">
+        <br />
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="LogModel.Name" class="control-label"></label>
+                <input asp-for="LogModel.Name" class="form-control" />
+                <span asp-validation-for="LogModel.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LogModel.Password" class="control-label"></label>
+                <input asp-for="LogModel.Password" class="form-control" />
+                <span asp-validation-for="LogModel.Password" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Вход" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

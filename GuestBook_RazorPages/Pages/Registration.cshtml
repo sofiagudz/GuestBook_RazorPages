@@ -1,0 +1,52 @@
+﻿@page
+@model GuestBook_RazorPages.Pages.RegistrationModel
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8" />
+    <title>Регистрация</title>
+</head>
+<body>
+    <div class="row">
+    <div class="col-md-4">
+        <br />
+        <form method="post">
+                @if (this.HttpContext.Session.GetString("Login") == null)
+                {
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="RegModel.Name" class="control-label"></label>
+                <input asp-for="RegModel.Name" class="form-control" />
+                <span asp-validation-for="RegModel.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RegModel.Password" class="control-label"></label>
+                <input asp-for="RegModel.Password" class="form-control" />
+                <span asp-validation-for="RegModel.Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RegModel.PasswordConfirm" class="control-label"></label>
+                <input asp-for="RegModel.PasswordConfirm" class="form-control" />
+                <span asp-validation-for="RegModel.PasswordConfirm" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Регистрация" class="btn btn-primary" />
+            </div>
+            <br />
+            }
+            else{
+                <div>
+                            <div>
+                                Вы уже авторизованы, чтобы создать новую учетную запись вам нужно выйти из этой!
+                            </div>
+                            <br/>
+                    <br/>
+                </div>
+            }
+        </form>
+    </div>
+</div>
+   
+</body>
+</html>
